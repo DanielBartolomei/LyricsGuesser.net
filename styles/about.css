@@ -1,0 +1,58 @@
+.about-page,
+.privacy-page,
+.terms-page,
+.contacts-page,
+.disclaimer-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #272727;
+    color: var(--platinum);
+    padding-top: 4rem;
+    min-height: 100vh;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+    margin:0;
+}
+
+.about-content {
+    font-size: 1.1em;
+    padding: 1em;
+}
+
+.about-content p {
+    padding-left: 2em;
+}
+
+.about-content li {
+    padding-left: 2em;
+}
+
+.about-content div {
+    padding-bottom: 2em;
+}
+
+.about-content div h1 {
+    color: var(--coral);
+}
+
+.about-content div h2 {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+.about-content div h3 {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+.about-content div a {
+    color: var(--coral);
+    transition: color .2s linear;
+}
+
+.about-content div a:hover {
+    color: var(--platinum);
+    transition: color .2s linear;
+}

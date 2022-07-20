@@ -1,0 +1,204 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.login-link {
+    color: var(--platinum);
+    transition: color .2s linear;
+}
+.login-link:hover {
+    color: var(--coral);
+    transition: color .2s linear;
+}
+
+.login-text {
+    color: var(--platinum);
+}
+
+.login-link img {
+    width: auto;
+    height: 1.6em;
+    vertical-align: middle;
+}
+
+.middle-login-text {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* REGISTER PAGE STYLE */
+
+.register-content {
+    width: 100%;
+    padding-top: 5rem;
+    font-size: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424; 
+    overflow-x:hidden;
+}
+
+.register-form {
+    background-color: var(--jet);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: var(--coral);
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    margin-bottom: 4em;
+}
+
+.form-title {
+    font-size: 2em;
+    margin: 2em;
+    font-weight: 1000;
+}
+
+.register-textbox {
+    margin-bottom: 2em;
+    margin-right: 3em;
+    margin-left: 3em;
+}
+
+.textbox input {
+    font-size: 1.10em;
+    width: 20em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.7em;
+    height: 3em;
+
+    background-color: #242424;
+    color: var(--platinum);
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
+
+    outline: none;
+
+    transition: border-color .2s linear;
+}
+
+.textbox input[type=password]::-ms-reveal, .textbox input[type=password]::-ms-clear {
+    display: none;
+}
+
+#show-password {
+    position: absolute;
+    font-size: 1.10em;
+    top: 1em;
+    right: 1em;
+    background-color: #242424;
+    color: #4a4a4a;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.label-shrink {
+    top: 0.3em !important;
+    font-size: 0.7em !important;
+    color: var(--coral) !important;
+    transition: top .2s linear, color .2s linear, font-size .2s linear;
+}
+
+.register-textbox label {
+    position: absolute;
+    top: calc(2em - 1.10em);
+    left: 1em;
+    font-size: 1.10em;
+    background-color: #242424;
+    color: #4a4a4a;
+    cursor: text;
+    transition: top .2s linear, color .2s linear, font-size .2s linear, opacity .2s linear;
+}
+
+.textbox input:focus + label {
+    top: 0.3em;
+    font-size: 0.7em;
+    color: var(--platinum) !important;
+    transition: top .2s linear, color .2s linear, font-size .2s linear;
+}
+
+.textbox {
+    position: relative;
+}
+
+.textbox input:focus {
+    transition: border-color .2s linear;
+}
+
+.expecting-input {
+    border-color: var(--coral);
+}
+
+.expecting-input:focus {
+    border-color: var(--platinum);
+}
+
+.wrong-input {
+    border-color: red;
+}
+
+.wrong-input:focus {
+    border-color: red;
+}
+
+.textbox input::placeholder {
+    color: #4a4a4a;
+}
+
+.textbox-tooltip {
+    visibility: hidden;
+    color: red;
+    font-size: 0.6em;
+}
+
+.button-container {
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+.register-button {
+    font-size: 1.5em;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--coral);
+
+    background-color: #242424;
+
+    cursor: pointer;
+
+    transition: color .2s linear, border-color .2s linear;
+}
+
+.register-button:hover {
+    border-color: var(--platinum);
+    color: var(--platinum);
+
+    transition: color .2s linear, border-color .2s linear;
+}
+
+.register-result {
+    font-weight: bold;
+    color: lime;
+    opacity: 0%;
+    margin-bottom: 2em;
+
+    transition: opacity 0.2s linear;
+}

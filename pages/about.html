@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lyrics Guesser | About</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A website that let you guess songs' titles by looking at their lyrics.">
+        <meta name="keywords" content="game,song,songs,games,guess,quizz,spotifi,music,singer,singers,blank space">
+        <meta name="application-name" content="GuessTheSong">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../styles/about.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/fontawesome/css/all.css"/>
+
+        <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+	    <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/icons/favicon.ico">
+	    <link rel="icon" type="image/png" sizes="196x196" href="../assets/icons/favicon-192.png">
+	    <link rel="icon" type="image/png" sizes="160x160" href="../assets/icons/favicon-160.png">
+	    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96.png">
+	    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon-64.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+	    <link rel="apple-touch-icon" href="../assets/icons/favicon-57.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icons/favicon-114.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icons/favicon-72.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icons/favicon-144.png">
+	    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icons/favicon-60.png">
+	    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icons/favicon-120.png">
+	    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icons/favicon-76.png">
+	    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icons/favicon-152.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+	    <meta name="msapplication-TileColor" content="#FFFFFF">
+	    <meta name="msapplication-TileImage" content="../assets/icons/favicon-144.png">
+	    <meta name="msapplication-config" content="../assets/icons/browserconfig.xml">
+
+        <script src="../scripts/nav.js"></script>
+    </head>
+    <body>
+
+        <!-- Overlay -->
+        <div id="hiddenNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="CloseNav()">&times;</a>
+  
+                <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/SimoneRover/WebLangProject" target="_blank">Github</a>
+                <a href="login.html">Log in</a>
+            </div>
+  
+        </div>
+        
+        <!-- Navbar -->
+        <nav id="myNav">
+            <a class="custom-bars" onclick="OpenNav()"><i class="fa-solid fa-bars"></i></a>
+
+            <a href="../" class="nav-title">LyricsGuesser</a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="/pages/play.html" class="nav-link"><i class="fa-regular fa-circle-play"></i> <span class="link-label">Play</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/about.html" class="nav-link"><i class="fa-regular fa-circle-question"></i> <span class="link-label">About</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/login.html" class="nav-link" id="trigger"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="link-label">Login</span></a>
+                    <!-- <i class="fa-regular fa-circle-user"></i> -->
+                </li>
+            </ul>
+
+            
+            <a href="/pages/login.html" class="nav-link-custom" id="trigger-mobile"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+
+        </nav>
+
+        <!-- User info dropdown menu -->
+        <div class="user-dropdown" id="dropdown">
+            <div id="dropdown-username">Logged in as _</div>
+            <a class="game-btn" onclick="logout()">Log out</a>
+        </div>
+
+        <div class="about-page">
+
+            <div class="about-content">
+                <div>
+                    <h1>Origin</h1>
+                    <h2>Academic project</h2>
+                    <p>LyricsGuesser is developed as an academic project by students of <a href="https://www.unimi.it/it" target="_blank">Università degli Studi di Milano</a>.</p>
+                    <h2>Previous knowledge</h2>
+                    <p>We used our knowledge of the <a href="https://developer.spotify.com/documentation/web-api/" target="_blank">Spotify API</a> matured in other studies as a starting point in order to offer an engaging website.</p>
+                </div>
+                <div>
+                    <h1>Goals</h1>
+                    <p>Deliver an entertaining platform revolving around songs the user is familiar with.</p>
+                    <p>Focus of the website is a simple but effective interface with some tweaks for mobile users.</p>
+                </div>
+                <div>
+                    <h1>Development</h1>
+                    <h2>Technologies used</h2>
+                    <p>The website makes use of the HTML5 APIs to store client-side data with LocalStorage.</p>
+                    <p>The styling is made entirely with CSS stylesheets and divided per page content. Some interesting tricks used are the home page gradient text and the parallax effect. We also used <a href="https://fontawesome.com/" target="_blank">FontAwesome</a> for the page icons.</p>
+                    <p>There's a backend server with over 1.1k lines of Javascript developed with NodeJS and Express. We use this server to store user and game data (sensible data is encrypted) and to communicate with external APIs (such as Spotify's and Musixmatch's).</p>
+                    <p>The website itself runs on a Debian machine on an <a href="https://httpd.apache.org/" target="_blank">Apache</a> web server.</p>
+                    <h2>Issues faced</h2>
+                    <p>Since songs lyrics are protected by Copyright, a website is not allowed to show them without proper permissions or privileges.</p>
+                    <p>We use the <a href="https://developer.musixmatch.com/" target="_blank">Musixmatch API</a> in order to retrieve those lyrics but we use them solely with academical purposes and with no commercial intent.</p>
+                    <p>All the Copyright info are shown with the corresponding lyrics.</p>
+                    <p>The Spotify logo is always used following the instructions reported on the official page and we do not take credit for it.</p>
+                </div>
+                <div>
+                    <h1>Other projects</h1>
+                    <h2>Music features visualization</h2>
+                    <p>We also developed a dashboard to visualize how music features is distributed and interacts with genre and other parameters.</p>
+                    <p>Link to project's Github: <a href="https://github.com/SimoneRover/SpotifyAPIdashboard" target="_blank">https://github.com/SimoneRover/SpotifyAPIdashboard</a></p>
+                </div>
+            </div>
+
+            <div class="footer-container">
+                <footer>
+                    <div class="footer-content">
+                        <a href="error.html">Github</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                        <a href="contacts.html">Contacts</a>
+                    </div>
+                    <div class="footer-copyright">
+                        LyricsGuesser © 2022
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+    </body>
+</html>

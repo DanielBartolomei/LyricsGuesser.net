@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lyrics Guesser | Guess the songs!</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A website that let you guess songs' titles by looking at their lyrics.">
+        <meta name="keywords" content="game,song,songs,games,guess,quizz,spotifi,music,singer,singers,blank space">
+        <meta name="application-name" content="GuessTheSong">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../styles/play.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/fontawesome/css/all.css"/>
+        
+        <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+	    <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/icons/favicon.ico">
+	    <link rel="icon" type="image/png" sizes="196x196" href="../assets/icons/favicon-192.png">
+	    <link rel="icon" type="image/png" sizes="160x160" href="../assets/icons/favicon-160.png">
+	    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96.png">
+	    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon-64.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+	    <link rel="apple-touch-icon" href="../assets/icons/favicon-57.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icons/favicon-114.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icons/favicon-72.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icons/favicon-144.png">
+	    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icons/favicon-60.png">
+	    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icons/favicon-120.png">
+	    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icons/favicon-76.png">
+	    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icons/favicon-152.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+	    <meta name="msapplication-TileColor" content="#FFFFFF">
+	    <meta name="msapplication-TileImage" content="../assets/icons/favicon-144.png">
+	    <meta name="msapplication-config" content="../assets/icons/browserconfig.xml">
+
+        <script src="../scripts/play.js"></script>
+        <script src="../scripts/nav.js"></script>
+    </head>
+    <body onload="OnPlayLoad()">
+
+        <!-- Overlay -->
+        <div id="hiddenNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="CloseNav()">&times;</a>
+  
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/SimoneRover/WebLangProject" target="_blank">Github</a>
+                <a href="login.html">Log in</a>
+            </div>
+  
+        </div>
+        
+        <!-- Navbar -->
+        <nav id="myNav">
+            <a class="custom-bars" onclick="OpenNav()"><i class="fa-solid fa-bars"></i></a>
+
+            <a href="../" class="nav-title">LyricsGuesser</a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="/pages/play.html" class="nav-link"><i class="fa-regular fa-circle-play"></i> <span class="link-label">Play</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/about.html" class="nav-link"><i class="fa-regular fa-circle-question"></i> <span class="link-label">About</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/login.html" class="nav-link" id="trigger"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="link-label">Login</span></a>
+                    <!-- <i class="fa-regular fa-circle-user"></i> -->
+                </li>
+            </ul>
+
+            
+            <a href="/pages/login.html" class="nav-link-custom" id="trigger-mobile"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+
+        </nav>
+
+        <!-- User info dropdown menu -->
+        <div class="user-dropdown" id="dropdown">
+            <div id="dropdown-username">Logged in as _</div>
+            <a class="game-btn" onclick="logout()">Log out</a>
+        </div>
+        
+        <div class="gamemodes-page">
+
+            <div class="gamemodes-div-unlogged" id="gamemodes-div-unlogged">
+                <div class="modes-header"> LYRICSGUESSER MODES </div>
+                <div class="lyricsguesser-placeholder">
+                    <p><a href="register.html"> REGISTER </a> or <a href="login.html"> LOGIN </a> with a LyricsGuesser account to play! </p>
+                </div>
+            </div>
+
+            <div class="gamemodes-div" id="gamemodes-div">
+
+                <div class="modes-header"> GENERAL MODES </div>              
+                
+
+                <ul class="gamemodes-list">
+                    <li onclick = "location.href = 'game.html?gamemode=top50';">
+                        <div class="gamemode">
+                            <a>TOP 50 GLOBAL</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's TOP 50 GLOBAL playlist. </p>
+                        </div>
+                    </li>
+                    <li onclick = "location.href = 'game.html?gamemode=today';">
+                        <div class="gamemode">
+                            <a>TODAY'S TOPs</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's TOP songs in the last 24 hours. </p>
+                        </div>
+                    </li>
+                    <li onclick = "location.href = 'game.html?gamemode=internationals';">
+                        <div class="gamemode">
+                            <a>INTERNATIONAL HITS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's INTERNATIONAL HITS playlist. </p>
+                        </div>
+                    </li>
+                </ul>
+                
+                
+                    <!-- MODALITA DEGLI ANNI-->
+                <div class="modes-header"> MODES BY YEAR </div>
+                <ul class="gamemodes-list">                       
+                    <li onclick = "location.href = 'game.html?gamemode=10s';">
+                        <div class="gamemode">
+                            <a>2010s SONGS</a>                                
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-2010 playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=00s';">
+                        <div class="gamemode">
+                            <a>2000s SONGS</a>                                
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-2000 playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=90s';">
+                        <div class="gamemode">
+                            <a>1990s SONGS</a>                                
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-1990 playlist.</p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=80s';">
+                        <div class="gamemode">
+                            <a>1980s SONGS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-1980 playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=70s';">
+                        <div class="gamemode">
+                            <a>1970s SONGS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-1970 playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=60s';">
+                        <div class="gamemode">
+                            <a>1960s SONGS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-1960 playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=50s';">
+                        <div class="gamemode">
+                            <a>1950s SONGS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p>You'll be guessing songs from Spotify's ALL-OUT-1950 playlist. </p>
+                        </div>
+                    </li>
+                </ul>
+
+                    <!-- MODALITA GENERI-->
+                <div class="modes-header"> MODES BY GENRE </div>
+                <ul class="gamemodes-list">  
+                    <li onclick = "location.href = 'game.html?gamemode=rockclassic';">
+                        <div class="gamemode">
+                            <a>ROCK CLASSIC</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's ROCK CLASSIC playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=latino';">
+                        <div class="gamemode">
+                            <a>LATINO</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's LATINO playlist. </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=country';">
+                        <div class="gamemode">
+                            <a>COUNTRY</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's COUNTRY playlist.  </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=rock';">
+                        <div class="gamemode">
+                            <a>ROCK</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's ROCK playlist.  </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=rap';">
+                        <div class="gamemode">
+                            <a>RAP</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's RAP playlist.  </p>
+                        </div>
+                    </li>
+
+                    <li onclick = "location.href = 'game.html?gamemode=dance';">
+                        <div class="gamemode">
+                            <a>DANCE SONGS</a>
+                        </div>
+                        <div class="gamemode-description">
+                            <p> You'll be guessing songs from Spotify's DANCE playlist.  </p>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="spotify-unlogged" id="spotify-unlogged">
+                <div class="modes-header"> SPOTIFY MODES</div>
+                <div class="spotify-placeholder" id="spotify-placeholder">
+                    <p><a href="login.html"> Login with <img src="../assets/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png"></a> in order to get access to other gamemodes! </p>
+                </div>
+
+            </div>
+
+
+            <div id="spotify-gamemodes" class="gamemodes-div"> 
+            </div>
+
+            <div class="footer-container">
+                <footer>
+                    <div class="footer-content">
+                        <a href="error.html">Github</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                        <a href="contacts.html">Contacts</a>
+                    </div>
+                    <div class="footer-copyright">
+                        LyricsGuesser © 2022
+                    </div>
+                </footer>
+            </div>
+            
+        </div>
+
+        
+        
+    </body>
+</html>

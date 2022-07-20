@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lyrics Guesser | Login</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A website that let you guess songs' titles by looking at their lyrics.">
+        <meta name="keywords" content="game,song,songs,games,guess,quizz,spotifi,music,singer,singers,blank space">
+        <meta name="application-name" content="LyricsGuesser">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" type="text/css" href="../styles/login.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/fontawesome/css/all.css"/>
+
+        <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+	    <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/icons/favicon.ico">
+	    <link rel="icon" type="image/png" sizes="196x196" href="../assets/icons/favicon-192.png">
+	    <link rel="icon" type="image/png" sizes="160x160" href="../assets/icons/favicon-160.png">
+	    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96.png">
+	    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon-64.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+	    <link rel="apple-touch-icon" href="../assets/icons/favicon-57.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icons/favicon-114.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icons/favicon-72.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icons/favicon-144.png">
+	    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icons/favicon-60.png">
+	    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icons/favicon-120.png">
+	    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icons/favicon-76.png">
+	    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icons/favicon-152.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+	    <meta name="msapplication-TileColor" content="#FFFFFF">
+	    <meta name="msapplication-TileImage" content="../assets/icons/favicon-144.png">
+	    <meta name="msapplication-config" content="../assets/icons/browserconfig.xml">
+
+        <script src="../scripts/nav.js"></script>
+        <script src="../scripts/login.js"></script>
+    </head>
+    <body onload="OnLoginLoad()">
+
+        <!-- Overlay -->
+        <div id="hiddenNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="CloseNav()">&times;</a>
+  
+                <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/SimoneRover/WebLangProject" target="_blank">Github</a>
+                <a href="login.html">Log in</a>
+            </div>
+  
+        </div>
+        
+        <!-- Navbar -->
+        <nav id="myNav">
+            <a class="custom-bars" onclick="OpenNav()"><i class="fa-solid fa-bars"></i></a>
+
+            <a href="../" class="nav-title">LyricsGuesser</a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="/pages/play.html" class="nav-link"><i class="fa-regular fa-circle-play"></i> <span class="link-label">Play</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/about.html" class="nav-link"><i class="fa-regular fa-circle-question"></i> <span class="link-label">About</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/login.html" class="nav-link" id="trigger"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="link-label">Login</span></a>
+                    <!-- <i class="fa-regular fa-circle-user"></i> -->
+                </li>
+            </ul>
+
+            
+            <a href="/pages/login.html" class="nav-link-custom" id="trigger-mobile"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+
+        </nav>
+        
+        <!-- User info dropdown menu -->
+        <div class="user-dropdown" id="dropdown">
+            <div id="dropdown-username">Logged in as _</div>
+            <a class="game-btn" onclick="logout()">Log out</a>
+        </div>
+
+        <div class="register-content">
+            <div></div>
+
+            <div class="register-form">
+                <div class="form-title">
+                    Log on LyricsGuesser
+                </div>
+                <div>
+                    <div class="register-textbox">
+                        <div class="textbox">
+                            <input type="text" name="username" id="username" class="expecting-input" autocomplete="off">
+                            <label for="username" id="username-label">Username</label>
+                        </div>
+                        <div class="textbox-tooltip" id="username-tooltip">
+                            Username not valid
+                        </div>
+                    </div>
+
+                    <div class="register-textbox">
+                        <div class="textbox">
+                            <input type="password" name="password" id="password" class="expecting-input">
+                            <label for="password" id="password-label">Password</label>
+                            <i class="fa-solid fa-eye" id="show-password" onclick="ShowPassword()"></i>
+                        </div>
+                        <div class="textbox-tooltip" id="password-tooltip">
+                            Password not valid
+                        </div>
+                    </div>
+                </div>
+                <div class="register-result" id="login-result">
+                    Login successful <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="login-container">
+                    <div class="login-text">
+                        Don't have an account? <a class="login-link" href="register.html">Register</a>
+                    </div>
+                    <div class="login-text middle-login-text">
+                        or
+                    </div>
+                    <div class="login-text">
+                        <a class="login-link" href="https://accounts.spotify.com/it/authorize?client_id=5e87bce380b34915a11ae22e9d03c519&response_type=code&redirect_uri=http://lyricsguesser.net/pages/authredirect.html&show_dialog=true&scope=playlist-read-private%20user-read-private%20user-library-read&state=app_auth">Log in with <img src="../assets/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Green.png"></a>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a class="register-button" onclick="Validate()">Log in</a>
+                </div>
+            </div>
+
+            <div class="footer-container">
+                <footer>
+                    <div class="footer-content">
+                        <a href="error.html">Github</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="privacy.html">Privacy</a>
+                        <a href="contacts.html">Contacts</a>
+                    </div>
+                    <div class="footer-copyright">
+                        LyricsGuesser © 2022
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+
+        
+
+    </body>
+</html>

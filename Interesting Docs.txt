@@ -1,0 +1,17 @@
+FULLSCREEN OVERLAY ANIMATION: https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
+STICKY NAVBAR: https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+FULLSCREEN TABS: https://www.w3schools.com/howto/howto_js_full_page_tabs.asp
+NAVBAR WITH ICONS: https://www.w3schools.com/howto/howto_css_navbar_icon.asp
+PARALLAX: https://www.w3schools.com/howto/howto_css_parallax.asp
+SCROLL TIMINGS: https://stackoverflow.com/questions/42821213/different-scroll-speed-for-each-element
+SCROLL ANIMATION: https://alvarotrigo.com/blog/css-animations-scroll/#:~:text=What%20are%20CSS%20Scroll%20Animations,text%2C%20images%2C%20and%20videos.
+
+CSS COLOR PALETTE #1 (orangeish): https://coolors.co/85ffc7-297373-ff8552-e6e6e6-39393a
+CSS COLOR PALETTE #2 (purpleish): https://coolors.co/49306b-635380-1e2019-ace4aa-e1cdb5 
+
+IMAGES: https://unsplash.com/s/photos/abstract?color=black
+
+FLEX TUTORIAL: https://www.youtube.com/watch?v=JJSoEo8JSnc
+
+
+---------------------------------------------------------------------------------------------------------

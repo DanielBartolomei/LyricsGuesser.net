@@ -1,0 +1,9 @@
+.error-content {
+    height: 100vh;
+    width: 100vw;
+    font-size: 2.5rem;
+    color: var(--platinum);
+    background-image: url("../assets/pallet/pawel-czerwinski-WVKFthwtJwU-unsplash.jpg");
+    padding: calc((100vh - 100px) / 2) 0;
+    text-align: center;
+}

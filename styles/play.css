@@ -1,0 +1,194 @@
+.gamemodes-page {
+    background-color: #272727;
+    /*background-image: url("../assets/palette/pawel-czerwinski-tMbQpdguDVQ-unsplash.jpg");*/
+    width: 100%;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.gamemodes-div,
+.gamemodes-div-unlogged,
+.spotify-unlogged {
+    height: min(calc(50% - 5em), 35em);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 7em);
+    text-align: center;
+    display: none;
+}
+
+
+.gamemodes-list {
+    list-style-type: none;
+    list-style-position: inside;
+    text-align: center;
+    overflow: hidden;
+}
+
+.gamemodes-page ul li {
+
+    background-color: var(--jet);
+    border-radius: 4px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 0.75em;   
+    transition: .7s;
+    height: 7em;
+    max-height: 7em;
+    width: 80vw;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+
+}
+
+
+.lyricsguesser-placeholder,
+.spotify-placeholder{
+    background-color: var(--coral);
+    border-radius: 4px;
+    margin: 0.75em;
+    height: 7em;
+    width: 80vw;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+}
+
+.lyricsguesser-placeholder p{
+    font-size: 1.3em;
+}
+
+.lyricsguesser-placeholder a{
+    color: var(--platinum);
+    font-weight: bold;
+}
+
+.gamemodes-page #spotify-gamemodes ul li{
+    background-color: #1DB954;
+    font-size: 1em;
+}
+
+.modes-header{
+    display:flex;
+    align-self: flex-start;
+    color: var(--jet);
+    background-color: var(--platinum);
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.3em;
+    margin-top: 1em;
+    border-right: 4px solid #1b1b1b;
+    border-bottom: 4px solid #1b1b1b;
+    border-radius: 3px;
+
+}
+
+.gamemode {
+    width: 30%;
+    font-size: 1.5rem;
+    padding: 0.5em;
+    margin: 1em;
+    border: 2px solid var(--platinum);
+    border-radius: 2px;
+    max-height: 6em;
+}
+
+.gamemode-description {
+    border-left: 3px solid var(--platinum);
+    width: 70%;
+    color: var(--platinum);
+    padding: 1em;
+    max-height: 6em;
+    overflow: auto;
+}
+    
+
+.gamemodes-page ul li img{
+    max-width: 2em;
+    max-height: 2em;
+}
+
+.gamemodes-page ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--platinum);
+    transition: .7s;
+}
+
+.gamemodes-page ul li:hover{
+    background-color: var(--coral);
+    transition: background-color .7s linear;
+    cursor: pointer;
+}
+
+.gamemodes-page ul li:active{
+    transform: translateY(4px);
+}
+
+.gamemodes-page ul li:hover a{
+    color: #e7e7e7;
+    transition: .7s;
+}
+
+.gamemodes-page #spotify-gamemodes ul li:hover{
+    cursor: pointer;
+    background-color: var(--coral);
+    transition: .7s;
+}
+
+
+.spotify-unlogged{
+    margin-bottom: 1em;
+}
+
+.spotify-placeholder {
+    background-color: #1DB954;
+    font-size: 1.3em;
+    max-height: 6em;
+}
+
+.spotify-placeholder p {
+    color:var(--platinum);
+}
+
+.spotify-placeholder a {
+    color: var(--platinum);
+}
+
+.spotify-placeholder img {
+    width: auto;
+    height: 1.6em;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 850px) {
+    /* play gamemodes */
+    .gamemode-description{
+        display: none;
+    }
+    .gamemodes-page{
+        padding-top: 6rem;
+    }
+
+    .gamemode {
+        width: 80%;
+    }
+
+    .gamemodes-page ul li {
+        width: 50vw;
+    }
+
+    .modes-header{
+        align-self: center;
+    }
+}

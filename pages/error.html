@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lyrics Guesser | Guess the songs!</title>
+
+        <link rel="stylesheet" type="text/css" href="../styles/error.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/fontawesome/css/all.css"/>
+
+        <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+	    <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/icons/favicon.ico">
+	    <link rel="icon" type="image/png" sizes="196x196" href="../assets/icons/favicon-192.png">
+	    <link rel="icon" type="image/png" sizes="160x160" href="../assets/icons/favicon-160.png">
+	    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96.png">
+	    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon-64.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+	    <link rel="apple-touch-icon" href="../assets/icons/favicon-57.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icons/favicon-114.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icons/favicon-72.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icons/favicon-144.png">
+	    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icons/favicon-60.png">
+	    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icons/favicon-120.png">
+	    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icons/favicon-76.png">
+	    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icons/favicon-152.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+	    <meta name="msapplication-TileColor" content="#FFFFFF">
+	    <meta name="msapplication-TileImage" content="../assets/icons/favicon-144.png">
+	    <meta name="msapplication-config" content="../assets/icons/browserconfig.xml">
+        
+        <script src="../scripts/nav.js"></script>
+    </head>
+    <body>
+
+        <!-- Overlay -->
+        <div id="hiddenNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="CloseNav()">&times;</a>
+  
+                <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/SimoneRover/WebLangProject" target="_blank">Github</a>
+                <a href="login.html">Log in</a>
+            </div>
+  
+        </div>
+        
+        <!-- Navbar -->
+        <nav id="myNav">
+            <a class="custom-bars" onclick="OpenNav()"><i class="fa-solid fa-bars"></i></a>
+
+            <a href="../" class="nav-title">LyricsGuesser</a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="/pages/play.html" class="nav-link"><i class="fa-regular fa-circle-play"></i> <span class="link-label">Play</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/about.html" class="nav-link"><i class="fa-regular fa-circle-question"></i> <span class="link-label">About</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/login.html" class="nav-link" id="trigger"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="link-label">Login</span></a>
+                    <!-- <i class="fa-regular fa-circle-user"></i> -->
+                </li>
+            </ul>
+
+            
+            <a href="/pages/login.html" class="nav-link-custom" id="trigger-mobile"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+
+        </nav>
+
+        <!-- User info dropdown menu -->
+        <div class="user-dropdown" id="dropdown">
+            <div id="dropdown-username">Logged in as _</div>
+            <a class="game-btn" onclick="logout()">Log out</a>
+        </div>
+
+        <div class="error-content">
+            <p>Oops!</p>
+            <p>Looks like an error occured...</p>
+        </div>
+
+        <div class="footer-container">
+            <footer>
+                <div class="footer-content">
+                    <a href="error.html">Github</a>
+                    <a href="disclaimer.html">Disclaimer</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="contacts.html">Contacts</a>
+                </div>
+                <div class="footer-copyright">
+                    LyricsGuesser © 2022
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

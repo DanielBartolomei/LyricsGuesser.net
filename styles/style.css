@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root {
+    --maximum: #16BDCC;
+    --dodger: #1c85d4;
+    --coral: #ff8552;
+    --platinum: #e6e6e6;
+    --jet: #39393a;
+}
+
+/* Default initial values */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--jet) var(--coral);
+}
+
+html {
+    font-size: 20px;
+}
+
+*::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--jet);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: coral;
+    border-radius: 40px;
+}
+
+/* Class to center an element vertically in the page */
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* CSS Start */
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* FOOTER STYLE */
+
+.footer-container {
+    background-color: var(--jet);
+    height: 8em;
+    width: 100vw;
+    border-top: 3px solid var(--coral);
+    padding: 1em;
+}
+
+.footer-container footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footer-content a {
+    text-decoration: none;
+    text-align: center;
+    color: var(--platinum);
+    font-size: 0.95em;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin: 0 0.08em;
+    width: 12em;
+    border-bottom: 1.5px solid var(--platinum);
+    transition: color .2s linear, border-bottom .2s linear;
+}
+
+.footer-content a:hover {
+    color: var(--coral);
+    border-bottom: 1.5px solid var(--coral);
+    transition: color .2s linear, border-bottom .2s linear;
+}
+
+.footer-copyright {
+    font-size: 0.7em;
+    color: gray;
+}
+
+
+@media screen and (max-width: 1200px){
+    html {
+        font-size: 16px;
+    }
+}
+
+/* MOBILE PHONES */
+@media screen and (max-width: 850px) {
+    html {
+        font-size: 10px;
+    }
+
+    .footer-content a {
+        text-decoration: none;
+        text-align: center;
+        color: var(--platinum);
+        font-size: 0.95em;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: 0 0.08em;
+        width: 11em;
+        border-bottom: 1px solid var(--platinum);
+        transition: color .2s linear, border-bottom .2s linear;
+    }
+}

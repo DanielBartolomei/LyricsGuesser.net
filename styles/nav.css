@@ -1,0 +1,248 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+
+    border-bottom: 3px solid #1b1b1b;
+
+    background-color: var(--jet);
+    height: 2.5rem;
+
+    transition: .5s;
+    transition-property: background-color, height;
+}
+
+nav ul {
+    margin-right: 2em;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    font-size: 1.25em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    width: 5em;
+}
+
+nav .nav-title {
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: 1em;
+    color: var(--platinum);
+    font-weight: 1000;
+
+    font-size: 1.5rem;
+
+    transition: .5s;
+    transition-property: font-size;
+}
+
+nav .custom-bars {
+    font-size: 2em;
+    margin-left: 1em;
+    margin-right: 2em;
+    color: var(--platinum);
+    cursor: pointer;
+    display: none;
+}
+
+nav .nav-link-custom {
+    font-size: 1.7em;
+    margin-left: 2em;
+    margin-right: 1em;
+    color: var(--platinum);
+    cursor: pointer;
+    display: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--platinum);
+}
+
+nav ul li span.link-label {
+    opacity: 0%;
+
+    transition: .5s;
+    transition-property: opacity;
+}
+
+nav:hover {
+    height: 4rem;
+    background-color: var(--coral);
+
+    transition: .5s;
+    transition-property: background-color, height;
+}
+
+nav:hover .nav-title {
+    font-size: 2em;
+
+    transition: .5s;
+    transition-property: font-size;
+}
+
+nav:hover ul li span.link-label {
+    opacity: 100%;
+    font-weight: 1000;
+
+    transition: .5s;
+    transition-property: opacity, font-weight;
+}
+
+.nav-link {
+    color: var(--platinum);
+
+    transition: color .3s linear;
+}
+
+.nav-link:hover {
+    color: var(--jet);
+
+    transition: color .3s linear;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 6; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+    @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+}
+
+/* User info dropdown */
+
+.user-dropdown {
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    right: 0.5em;
+    top: 0;
+    width: 16em;
+    height: 8em;
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 0.3s, top 0.3s;
+}
+
+.user-dropdown-open {
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 4.2em;
+    visibility: visible;
+    transform: scale(1);
+    width: 16em;
+    height: 8em;
+    background-color: var(--jet);
+    color: var(--platinum);
+    border-radius: 4px;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    transition: transform 0.3s, top 0.3s;
+}
+
+.user-dropdown div {
+    font-weight: bold;
+}
+
+.user-dropdown .game-btn {
+    background-color: var(--platinum);
+    color: var(--jet);
+}
+
+@media screen and (max-width: 850px) {
+    html {
+        font-size: 10px;
+    }
+
+    nav .custom-bars {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        margin-left: 1em;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav .nav-title{
+        margin: 0;
+        font-size: 2em;
+    }
+
+    nav .nav-link-custom {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        margin-right: 1em;
+    }
+
+    /* static nav */
+    nav {
+        height: 4rem;
+        background-color: var(--coral);
+        justify-content: space-between;
+    }
+}

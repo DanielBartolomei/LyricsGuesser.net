@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lyrics Guesser | Guess the songs!</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="A website that let you guess songs' titles by looking at their lyrics.">
+        <meta name="keywords" content="game,song,songs,games,guess,quizz,spotifi,music,singer,singers,blank space">
+        <meta name="application-name" content="GuessTheSong">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../styles/game.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/fontawesome/css/all.css"/>
+
+        <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+	    <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/icons/favicon.ico">
+	    <link rel="icon" type="image/png" sizes="196x196" href="../assets/icons/favicon-192.png">
+	    <link rel="icon" type="image/png" sizes="160x160" href="../assets/icons/favicon-160.png">
+	    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96.png">
+	    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon-64.png">
+	    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png">
+	    <link rel="apple-touch-icon" href="../assets/icons/favicon-57.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="../assets/icons/favicon-114.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="../assets/icons/favicon-72.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="../assets/icons/favicon-144.png">
+	    <link rel="apple-touch-icon" sizes="60x60" href="../assets/icons/favicon-60.png">
+	    <link rel="apple-touch-icon" sizes="120x120" href="../assets/icons/favicon-120.png">
+	    <link rel="apple-touch-icon" sizes="76x76" href="../assets/icons/favicon-76.png">
+	    <link rel="apple-touch-icon" sizes="152x152" href="../assets/icons/favicon-152.png">
+	    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/favicon-180.png">
+	    <meta name="msapplication-TileColor" content="#FFFFFF">
+	    <meta name="msapplication-TileImage" content="../assets/icons/favicon-144.png">
+	    <meta name="msapplication-config" content="../assets/icons/browserconfig.xml">
+
+        <script src="../scripts/game.js"></script>
+        <script src="../scripts/nav.js"></script>
+    </head>
+    <body onload="OnGameLoad()">
+
+        <!-- Overlay -->
+        <div id="hiddenNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="CloseNav()">&times;</a>
+  
+                <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/SimoneRover/WebLangProject" target="_blank">Github</a>
+                <a href="#" onclick="RequestAuthorization()">Log in</a>
+            </div>
+  
+        </div>
+        
+        <!-- Navbar -->
+        <nav id="myNav">
+            <a class="custom-bars" onclick="OpenNav()"><i class="fa-solid fa-bars"></i></a>
+
+            <a href="../" class="nav-title">LyricsGuesser</a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="/pages/play.html" class="nav-link"><i class="fa-regular fa-circle-play"></i> <span class="link-label">Play</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/about.html" class="nav-link"><i class="fa-regular fa-circle-question"></i> <span class="link-label">About</span></a>
+                </li>
+            
+                <li>
+                    <a href="/pages/login.html" class="nav-link" id="trigger"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="link-label">Login</span></a>
+                    <!-- <i class="fa-regular fa-circle-user"></i> -->
+                </li>
+            </ul>
+
+            
+            <a href="/pages/login.html" class="nav-link-custom" id="trigger-mobile"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+
+        </nav>
+
+        <!-- User info dropdown menu -->
+        <div class="user-dropdown" id="dropdown">
+            <div id="dropdown-username">Logged in as _</div>
+            <a class="game-btn" onclick="logout()">Log out</a>
+        </div>
+
+
+        <div id="page-content" class="game-page">
+
+            <div class="guess-popup" id="guess-popup">
+                <p class="guess-title" id="popup-title">BRAVO!</p>
+                <p class="guess-score" id="popup-score">80/100</p>
+                <div class="progress-container">
+                    <progress value="80" max="100" id="popup-progress-bar"></progress>
+                </div>
+                <p class="guess-attribute-header"> The song was: </p>
+                <p class="guess-attribute" id="popup-solution">"All Star" by Smash Mouth</p>
+
+                <p class="guess-attribute-header">Your total points:</p>
+                <p class="guess-attribute" id="popup-total">240</p>
+
+                <a class="game-btn" onclick="Next()">NEXT</a>
+            </div>
+            <div class="guess-overlay" id="guess-overlay"></div>
+
+
+            <div class="game-container">
+
+                <!-- mobile title -->
+                <div class="game-mobile-title"> GUESS THE TITLE! </div>
+
+                <!-- desktop game -->
+                <div class="lyrics-UI">
+                    <div class="lyrics-container">
+                        <div id="lyrics-box"> 
+                            <p>Somebody once told me</p>
+                            <p>The world is gonna roll me</p>
+                            <p>I ain't the sharpest tool in the shed</p>
+                            <p>She was looking kind of dumb</p>
+                            <p>With her finger and her thumb</p>
+                            <p>In the shape of an "L" on her forehead</p>
+                            <p></p>
+                            <p>Well, the years start coming</p>
+                            <p>And they don't stop coming</p>
+                            <p>Fed to the rules and I hit the ground running</p>
+                            <p>Didn't make sense not to live for fun</p>
+                            <p>Your brain gets smart, but your head gets dumb</p>
+                            <p></p>
+                            <p>So much to do, so much to see</p>
+                            <p>So what's wrong with taking the back streets?</p>
+                            <p>You'll never know if you don't go</p>
+                            <p>You'll never shine if you don't glow</p>
+                            <p></p>
+                            <p>Hey now, you're an all star</p>
+                            <p>Get your game on, go play</p>
+                            <p>Hey now, you're a rock star</p>
+                            <p>Get the show on, get paid</p>
+                            <p>And all that glitters is gold</p>
+                            <p>Only shooting stars break the mold</p>
+                            <p></p>
+                            <p>It's a cool place and they say it gets colder</p>
+                            <p>You're bundled up now, wait 'til you get older</p>
+                            <p>...</p>
+                            
+                            <p>******* This Lyrics is NOT for Commercial use *******</p>
+                            <p>(1409622557050)</p> 
+                        </div>
+                    </div>
+                    <div class="copyright-container">
+                        <p id="copyright-box">Lyrics powered by www.musixmatch.com. This Lyrics is NOT for Commercial use and only 30% of the lyrics are returned.</p>
+                    </div>
+                </div>
+                
+                
+                <div class="game-UI">
+                    <div>
+                        <p class="game-title"> GUESS THE TITLE! </p>
+                    </div>
+                    <div class="game-inputs-container">
+                        <div>
+                            <input type="text" id="guess-txt" placeholder="Insert your guess...">
+                            <a id="guess-btn" class="game-btn"  onclick="SubmitGuess()">GUESS</a>
+                        </div>
+                        
+                        <div>
+                            <a class="skip-text"> IF YOU DON'T KNOW THE TITLE </a>
+                            <a id="tip-btn" class="game-btn" onclick="SkipSong()">SKIP</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,79 @@
+.index-page{
+    overflow-x: hidden;
+}
+
+/* Logo animation */
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #858585 0%,
+    #cacaca 40%,
+    #ffffff 60%,
+    #cacaca 80%,
+    #858585 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #ffffff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* Class to center an element vertically in the page */
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* Parallax classes */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.parallax1 {
+    background-image: url("../assets/palette/pawel-czerwinski-tMbQpdguDVQ-unsplash.jpg");
+    padding-top: 4rem;
+}
+
+.parallax-content {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--platinum);
+    text-align: center;
+}
+
+.parallax-inter{
+    background-color: var(--dodger);
+    padding-top: 200px;
+    padding-bottom: 200px;
+    font-size: 2rem;
+    color: var(--platinum);
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 3px solid #0e3b5f;
+    border-top: 3px solid #58b3fd;
+
+}
+
+
+.parallax2 {
+    background-image: url("../assets/palette/pawel-czerwinski-mfDyMcjLoVQ-unsplash.jpg");
+}

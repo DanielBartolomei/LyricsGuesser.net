@@ -1,0 +1,321 @@
+.game-page {
+    background-color: #272727;
+    
+    height: 100vh;
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    padding-top: 5rem;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    background-color: var(--jet);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    z-index: 0;
+    padding: 1.5em;
+}
+
+.lyrics-UI {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lyrics-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--coral);
+    border-radius: 5px;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    overflow-y: auto;
+    padding: 2em;
+}
+
+.lyrics-container div#lyrics-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+div#lyrics-box p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.15em;
+}
+
+.copyright-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--coral);
+    border-radius: 5px;
+    border-bottom: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    overflow-y: hidden;
+}
+
+.copyright-container p {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 1em;
+}
+
+/*.lyrics-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}*/
+
+.game-UI {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 50%;
+    height: 100%;
+
+    margin-left: 1.5em;
+}
+
+.game-UI input {
+    background-color: #272727;
+    color: var(--platinum);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    width: 22rem;
+    height: 3.5em;
+    border-radius: 5px;
+    border-color: var(--coral);
+    border-style:solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: 0.3s;
+    transition-property: border-color;
+    outline:none;
+    
+}
+
+.game-UI input:focus{
+    border-color: var(--platinum);
+    transition: 0.3s;
+    transition-property: border-color;
+}
+
+.game-UI input::placeholder{
+    color: var(--platinum);
+}
+
+.game-title,
+.game-mobile-title{
+    border: 2px solid var(--platinum);
+    border-radius: 2px;
+    padding: 0.2em;
+    font-size: 3rem;
+    color: var(--platinum);
+    text-align: center;
+}
+
+.game-mobile-title{
+    display:none;
+    align-self:center;
+    color: var(--platinum);
+    font-size: 2.5rem;
+    margin: 1.5rem;
+}
+
+.game-btn{
+    display: inline-block;
+    margin-top: 0.4em;
+    background-color: var(--platinum);
+    padding: 0.4em 0.7em;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    color: var(--jet);
+
+    box-shadow: 0 4px #1b1b1b;
+
+    transition:  color 0.2s linear, background-color 0.2s linear;
+    
+}
+
+.game-btn:hover{
+    background-color: var(--coral);
+    color: var(--platinum);
+    cursor: pointer;
+    transition: color 0.2s linear, background-color 0.2s linear;
+
+}
+
+.game-btn:active{
+    box-shadow: 0 1px #1b1b1b;
+    transform: translateY(3px);
+}
+
+.game-inputs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3em;
+}
+
+.game-inputs-container div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.skip-text{
+    font-size: 1.1em;
+    color: var(--platinum);
+}
+
+.guess-overlay{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 2rem;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s;
+    
+}
+
+.guess-visible-overlay{
+    visibility: visible;
+    opacity: 100%;
+    
+}
+
+.guess-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%) scale(0.1);
+    background-color: var(--platinum);
+    padding: 1em 4em;
+    color: var(--jet);
+    border-radius: 8px;
+    box-shadow: 1px 3px 10px black;
+    z-index: 2;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.guess-open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.guess-popup a{
+    color: var(--platinum);
+    background-color: var(--jet);
+    transition: 0.7s;
+    margin: 1em 0;
+}
+
+.guess-popup a:hover{
+    background-color: var(--coral);
+    transition: 0.7s;
+}
+
+.guess-title{
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.guess-attribute-header{
+    font-size: 1.6em;
+    font-weight: bolder;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+.guess-attribute{
+    font-size: 1.3em;
+    font-weight: 100;
+    margin-bottom: 1em;
+}
+
+.guess-score{
+    font-size: 2em;
+}
+
+progress{
+    accent-color: var(--coral);
+    height: 4em;
+    width: 30vw;
+}
+
+@media screen and (max-width: 850px) {
+
+    /* GAME PAGE */
+    .game-page {
+        height: 100%;
+        min-height: 100vh;
+    }
+
+    .game-container{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .game-mobile-title{
+        display: flex;
+    }
+
+    .lyrics-UI {
+        width: 100%;
+    }
+
+    .lyrics-container{
+        width: 100%;
+    }
+
+    .game-UI{
+        width: 100%;
+    }
+
+    .game-title{
+        display:none;
+    }
+}
