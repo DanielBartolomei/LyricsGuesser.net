@@ -1,7 +1,7 @@
 .env
-usernames/*
-usernames/*/
+usernames\*
+usernames\*\
 !usernames/LyricsGuesser_users_here.txt
-usertokens/*
-usertokens/*/
-!usertokens/Spotify_users_here.txt
+usertokens\*
+usertokens\*\
+!usertokens\Spotify_users_here.txt
