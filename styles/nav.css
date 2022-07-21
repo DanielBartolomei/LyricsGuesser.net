@@ -207,12 +207,32 @@ nav:hover ul li span.link-label {
 }
 
 .user-dropdown .game-btn {
+    display: inline-block;
+    margin-top: 0.4em;
     background-color: var(--platinum);
-    color: var(--jet);
-    padding: 0.25em 0.45em;
+    padding: 0.4em 0.7em;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 10px;
+    font-size: 1.4rem;
+    color: var(--jet);
+
+    box-shadow: 0 4px #1b1b1b;
+
+    transition:  color 0.2s linear, background-color 0.2s linear;
+}
+
+.user-dropdown .game-btn:hover{
+    background-color: var(--coral);
+    color: var(--platinum);
     cursor: pointer;
-    font-weight: bold;
+    transition: color 0.2s linear, background-color 0.2s linear;
+
+}
+
+.user-dropdown .game-btn:active{
+    box-shadow: 0 1px #1b1b1b;
+    transform: translateY(3px);
 }
 
 @media screen and (max-width: 850px) {

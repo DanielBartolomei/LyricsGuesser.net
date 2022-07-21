@@ -165,7 +165,7 @@ async function SubmitGuess(){
     let guessResp = await GetSubmitGuessResponse();
     console.log(guessResp);
     if (guessResp.status != 200) {
-        window.location = "http://lyricsguesser.net/pages/error.html";
+        //window.location = "http://lyricsguesser.net/pages/error.html";
         return;
     }
 

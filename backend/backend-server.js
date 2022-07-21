@@ -1060,7 +1060,7 @@ app.post("/submitGuess", (req, res) => {
     let hashcode = req.body.hashcode || undefined;
 
     if (logType != "spotify" && logType != "lyricsguesser") {
-        res.json(makeErrorResponseBadRequest());
+        res.json(makeErrorResponseUnauthorized());
         return;
     }
     if ((user === null || user === undefined) || (hashcode === null || hashcode === undefined)) {
@@ -1098,7 +1098,7 @@ app.post("/submitGuess", (req, res) => {
         }
 
         let userData = JSON.parse(fs.readFileSync("./users/usernames/" + user + "/info.json"));
-        if (userData.hashcode != hashcode) {
+        if (userData.hashCode != hashcode) {
             res.json(makeErrorResponseUnauthorized());
             return;
         }
@@ -1112,8 +1112,7 @@ app.post("/submitGuess", (req, res) => {
 
     let guess = req.body.guess || undefined;
     if (guess === null || guess === undefined) {
-        res.json(makeErrorResponseBadRequest());
-        return;
+        guess = "";
     }
 
     let points = CalculateGuessPoints(ReformatSongTitle(songData.title), guess);
@@ -1145,8 +1144,3 @@ app.listen(PORT, () => {
 });
 
 InitAppAccessToken();
-async function ciao(){
-    let ph = await SelectPublicSpotifyPlaylistTrack(LATINO);
-    console.log(ph);
-}
-ciao();
