@@ -209,6 +209,10 @@ nav:hover ul li span.link-label {
 .user-dropdown .game-btn {
     background-color: var(--platinum);
     color: var(--jet);
+    padding: 0.25em 0.45em;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 850px) {
