@@ -3,7 +3,7 @@
     width: 100vw;
     font-size: 2.5rem;
     color: var(--platinum);
-    background-image: url("../assets/palette/pawel-czerwinski-9i0_nwHe6T8-unsplash.jpg");
+    background-image: url("../assets/palette_compressed/pawel-czerwinski-9i0_nwHe6T8-unsplash.jpg");
     padding: calc((100vh - 100px) / 2) 0;
     text-align: center;
 }

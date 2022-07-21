@@ -49,7 +49,7 @@
 }
 
 .parallax1 {
-    background-image: url("../assets/palette/pawel-czerwinski-tMbQpdguDVQ-unsplash.jpg");
+    background-image: url("../assets/palette_compressed/pawel-czerwinski-tMbQpdguDVQ-unsplash.jpg");
     padding-top: 4rem;
 }
 
@@ -75,5 +75,5 @@
 
 
 .parallax2 {
-    background-image: url("../assets/palette/pawel-czerwinski-mfDyMcjLoVQ-unsplash.jpg");
+    background-image: url("../assets/palette_compressed/pawel-czerwinski-mfDyMcjLoVQ-unsplash.jpg");
 }
