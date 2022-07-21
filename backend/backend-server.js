@@ -417,6 +417,7 @@ async function RequestPublicSpotifyPlaylistTracks(playlistid, limit = 1, offset 
     }
     catch (error) {
         if (error.response.status == 401) {
+            console.log("Need to refresh App AccessToken");
             APP_ACCESS_TOKEN = await fetchAppAccessToken();
             resp = await RequestPublicSpotifyPlaylistTracks(playlistid);
         } else if (error.response.status == 429) {
@@ -455,7 +456,6 @@ async function SelectPublicSpotifyPlaylistTrack(playlistid) {
         "title": title,
         "artist": artist
     }
-    console.log(trackData);
     return trackData;
 }
 
@@ -891,7 +891,7 @@ app.post("/getSongToGuess", async (req, res) => {
     let hashcode = req.body.hashcode || undefined;
 
     if (logType != "spotify" && logType != "lyricsguesser") {
-        res.json(makeErrorResponseBadRequest());
+        res.json(makeErrorResponseUnauthorized());
         return;
     }
 
@@ -901,10 +901,11 @@ app.post("/getSongToGuess", async (req, res) => {
     }
 
     let trackData = null;
-    let notSpotifyGameMode = false;
+    let notSpotifyGameMode;
 
     if (logType == "spotify") {
         // spotify user
+        notSpotifyGameMode = false;
 
         if (!fs.existsSync("./users/usertokens/" + user)) {
             console.log("User does not exist");
@@ -922,9 +923,6 @@ app.post("/getSongToGuess", async (req, res) => {
             case "favorites":
                 trackData = await SelectUserTrack(user);
                 break;
-            case "nationality":
-                // get track from user country
-                break;
             case "playlists":
                 trackData = await SelectTrackFromUserPlaylists(user);
                 break;
@@ -933,6 +931,7 @@ app.post("/getSongToGuess", async (req, res) => {
         }
     } else {
         // lyricsguesser user
+        notSpotifyGameMode = true;
 
         if (!fs.existsSync("./users/usernames/" + user)) {
             res.json(makeErrorResponseUnauthorized());
@@ -1146,3 +1145,8 @@ app.listen(PORT, () => {
 });
 
 InitAppAccessToken();
+async function ciao(){
+    let ph = await SelectPublicSpotifyPlaylistTrack(LATINO);
+    console.log(ph);
+}
+ciao();
