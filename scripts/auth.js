@@ -1,8 +1,10 @@
+const { response } = require("express");
+
 const CLIENT_ID = "5e87bce380b34915a11ae22e9d03c519";
 const REDIRECT_URI = "http://lyricsguesser.net/pages/authredirect.html";
 const SCOPES = "playlist-read-private user-read-private user-library-read";
 const AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-const ERROR_PAGE = "http://lyricsguesser.net/pages/error.html"; 
+const ERROR_PAGE = "http://lyricsguesser.net/pages/error.html";
 
 function GetLogInURI(){
     let url = AUTHORIZE_ENDPOINT;
@@ -22,6 +24,8 @@ function GetLogInURI(){
 function FetchCode(){
     let params = new URLSearchParams(window.location.search);
     if(params.get("state") != "app_auth" || params.get("error") != null){
+        localStorage.setItem("errorCode", "400");
+        localStorage.setItem("errorStatus", "Bad Request");
         window.location.href = ERROR_PAGE;
     } else {
         return params.get("code");
@@ -51,6 +55,8 @@ function RequestUserAccessToken(code){
             }
             window.location.href = "http://lyricsguesser.net";
         } else {
+            localStorage.setItem("errorCode", response.content.status);
+            localStorage.setItem("errorStatus", response.content.statusText);
             window.location.href = ERROR_PAGE;
         }
     }

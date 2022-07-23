@@ -5,7 +5,6 @@ var APP_ACCESS_TOKEN;
 // SPOTIFY ENDPOINTS AND PLAYLIST IDs
 const SPOTIFY_TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const SPOTIFY_API = "https://api.spotify.com/v1";
-const SPOTIFY_SEARCH_ENDPOINT = "/search";
 const SPOTIFY_PLAYLIST_ENDPOINT = "/playlists";
 
 // Playlist throwback
@@ -226,7 +225,11 @@ function SaveUserInfo(jsonresp, res){
     })
     .catch((error) => {
         console.log(error.response);
-        res.json(error.response);
+        let retObj = {
+            "status": error.response.status,
+            "statusText": error.response.statusText
+        }
+        res.json(retObj);
     });
 }
 

@@ -1,9 +1,25 @@
 .error-content {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     font-size: 2.5rem;
     color: var(--platinum);
     background-image: url("../assets/palette_compressed/pawel-czerwinski-9i0_nwHe6T8-unsplash.jpg");
-    padding: calc((100vh - 100px) / 2) 0;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    min-height: 100vh;
+}
+
+.error-title {
+    color: var(--platinum);
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+.error-desc {
+    color: var(--platinum);
+    font-size: 0.9em;
+    margin: 1em;
 }
