@@ -49,7 +49,7 @@ function RequestUserAccessToken(code){
                 localStorage.setItem("errorStatus", response.statusText);
                 window.location.href = ERROR_PAGE;
             }
-            else (response.content.user != undefined && response.content.name != undefined) {
+            else {
                 localStorage.setItem("logtype", "spotify");
                 localStorage.setItem("user", response.content.user);
                 localStorage.setItem("name", response.content.name);
