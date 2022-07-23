@@ -21,6 +21,10 @@ function errorload(){
         case "409":
             errorDesc = "Either yours or server's informations are not updated";
             break;
+        case "500":
+            errorDesc = "An error occured within the backend server";
+        case "504":
+            errorDesc = "Connection timeout with backend server, try refresh the page";
         default:
             errorDesc = "Something went wrong";
             break;

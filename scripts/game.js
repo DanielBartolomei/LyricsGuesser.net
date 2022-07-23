@@ -2,7 +2,7 @@ function RequestLyrics(reqBody){
     return new Promise(function (resolve, reject) {
         let lyricsReq = new XMLHttpRequest();
         lyricsReq.open("POST", "http://lyricsguesser.net:8000/getSongToGuess", true);
-        lyricsReq.timeout = 1500;
+        lyricsReq.timeout = 3000;
         lyricsReq.setRequestHeader("Content-type", "application/json");
         lyricsReq.onload = () => {
             if (lyricsReq.status == 200) {
@@ -128,8 +128,9 @@ async function UpdateLyricsContainer() {
 
     let newLyricsData = await GetLyricsData();
     if (newLyricsData.status != 200) {
-        lyricsBox.innerHTML = "<p>" + newLyricsData.status + "</p><p>" + newLyricsData.statusText + "</p>";
-        copyrightBox.innerHTML = "Something went wrong";
+        localStorage.setItem("errorCode", newLyricsData.status);
+        localStorage.setItem("errorStatus", newLyricsData.statusText);
+        window.location = "http://lyricsguesser.net/pages/error.html";
         return;
     }
     lyricsBox.innerHTML = GetLyricsHTML(newLyricsData.content.lyrics);
@@ -165,7 +166,9 @@ async function SubmitGuess(){
     let guessResp = await GetSubmitGuessResponse();
     console.log(guessResp);
     if (guessResp.status != 200) {
-        //window.location = "http://lyricsguesser.net/pages/error.html";
+        localStorage.setItem("errorCode", guessResp.status);
+        localStorage.setItem("errorStatus", guessResp.statusText);
+        window.location = "http://lyricsguesser.net/pages/error.html";
         return;
     }
 
