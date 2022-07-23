@@ -716,6 +716,7 @@ app.get('/', (req, res) => {
             })
             .catch(function (error){
                 console.log(error);
+                res.json(error.response);
             });
         }
     } else {

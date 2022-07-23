@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const CLIENT_ID = "5e87bce380b34915a11ae22e9d03c519";
 const REDIRECT_URI = "http://lyricsguesser.net/pages/authredirect.html";
 const SCOPES = "playlist-read-private user-read-private user-library-read";
@@ -34,7 +32,7 @@ function FetchCode(){
 
 /**
  * Effects: sends a POST request to the TOKEN_ENDPOINT in order to get the Accesstoken.
- *          Then proceeds to handle the responde via the function HandleAccessTokenResponse().
+ *          Then proceeds to handle the response.
  */
 function RequestUserAccessToken(code){
     let requests = new XMLHttpRequest();
@@ -43,22 +41,28 @@ function RequestUserAccessToken(code){
 
     requests.open("GET", uri, true);
     requests.onload = () => {
-        console.log(requests);
+        
         if (requests.status == 200) {
             let response = JSON.parse(requests.responseText);
-            if (response.content.user != undefined && response.content.name != undefined) {
+            if (response.status != 200) {
+                localStorage.setItem("errorCode", response.status);
+                localStorage.setItem("errorStatus", response.statusText);
+                window.location.href = ERROR_PAGE;
+            }
+            else (response.content.user != undefined && response.content.name != undefined) {
                 localStorage.setItem("logtype", "spotify");
                 localStorage.setItem("user", response.content.user);
                 localStorage.setItem("name", response.content.name);
                 localStorage.setItem("country", response.content.country);
                 localStorage.setItem("hashcode", response.content.hashcode);
+                window.location.href = "http://lyricsguesser.net";
             }
-            window.location.href = "http://lyricsguesser.net";
         } else {
-            localStorage.setItem("errorCode", response.content.status);
-            localStorage.setItem("errorStatus", response.content.statusText);
+            localStorage.setItem("errorCode", requests.status);
+            localStorage.setItem("errorStatus", requests.statusText);
             window.location.href = ERROR_PAGE;
         }
+        return;
     }
     requests.send();
 }
